@@ -3,10 +3,10 @@ import { Text, StyleSheet, View, Button, TouchableOpacity } from 'react-native';
 
 //const menu = <Menu navigator={navigator} />
 
-const HomeScreen = () => {
+const MyProfileScreen = ({ navigation }) => {
   return (
     <View style={styles.text}>
-      <Text>Dashboard </Text>
+      <Text>My Profile </Text>
     </View>
   );
 };
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default MyProfileScreen;

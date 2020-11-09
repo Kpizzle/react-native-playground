@@ -1,29 +1,21 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import * as React from 'react';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from './src/screens/HomeScreen';
-import listScreen from './src/screens/ListScreen';
-import ComponentsScreen from './src/screens/ComponentsScreen';
-import ImageScreen from './src/screens/ImageScreen';
-import CounterScreen from './src/screens/CounterScreen';
-import ColourScreen from './src/screens/ColourScreen'
-import SquareScreen from './src/screens/SquareScreen';
+import MyProfileScreen from './src/screens/MyProfileScreen';
 
-const navigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Components: ComponentsScreen,
-    List: listScreen,
-    Image: ImageScreen,
-    Count: CounterScreen,
-    Colour: ColourScreen,
-    Square: SquareScreen,
-  },
-  {
-    initialRouteName: 'Home',
-    defaultNavigationOptions: {
-      title: 'Playground',
-    },
-  }
-);
 
-export default createAppContainer(navigator);
+
+const Drawer = createDrawerNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName='Home'>
+        <Drawer.Screen name='Dashboard' component={HomeScreen} />
+        <Drawer.Screen name='My Profile' component={MyProfileScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
